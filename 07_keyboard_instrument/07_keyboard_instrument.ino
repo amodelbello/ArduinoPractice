@@ -1,16 +1,19 @@
-int buttons[6] = {2};
-
-
 int notes[] = {262, 330, 392, 523};
+int thirteen = 13;
 
 void setup() {
+  pinMode(thirteen, OUTPUT);
+  digitalWrite(thirteen, HIGH);
   Serial.begin(9600);
 }
 
 void loop() {
   int keyVal = analogRead(A0);
   Serial.println(keyVal);
+  if (keyVal >= 2)
+    digitalWrite(thirteen, HIGH);
 
+  
   if(keyVal > 1010) {
     tone(8, notes[3]);
   
@@ -24,6 +27,7 @@ void loop() {
     tone(8, notes[0]);
   
   } else {
+    digitalWrite(thirteen, LOW);
     noTone(8);
   }
   
