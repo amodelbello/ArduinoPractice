@@ -1,5 +1,5 @@
 
-const int sensorPin = A0;
+const int sensorPin = A5;
 float baselineTemp = 1.1;
 
 float getVoltageFromSensor(int sensorVal) {
@@ -18,14 +18,14 @@ float getTempFromSensor(int sensorVal) {
 void setup() {
   Serial.begin(9600); // open a serial port
 
-  int sensorVal = analogRead(sensorPin);
+  float sensorVal = analogRead(sensorPin);
   baselineTemp = getTempFromSensor(sensorVal);
   Serial.print("sv: ");
   Serial.print(sensorVal);
   Serial.print("bl: ");
   Serial.print(baselineTemp);
   
-  for(int pinNumber = 2; pinNumber < 5; pinNumber++) {
+  for(int pinNumber = 2; pinNumber <= 4; pinNumber++) {
     pinMode(pinNumber, OUTPUT);
     digitalWrite(pinNumber, LOW);
   }
