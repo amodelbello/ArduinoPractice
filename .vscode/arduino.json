@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:uno",
+    "sketch": "10_zoetrope/10_zoetrope.ino",
+    "port": "/dev/ttyACM0",
+    "output": "../ArduinoOutput"
+}
